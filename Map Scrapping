@@ -1,0 +1,21 @@
+## Source: https://github.com/googlemaps/google-maps-services-python
+
+import googlemaps
+import json
+import csv
+import time
+from datetime import datetime
+
+KLUCZ_API = 'place your key here'
+gmaps = googlemaps.Client(key= KLUCZ_API)
+
+# Look up an address with reverse geocoding
+#reverse_geocode_result = gmaps.reverse_geocode((51.763271, 19.467219))
+
+# Request directions via public transit
+now = datetime.now()
+directions_result = gmaps.directions("Kilińskiego - Tuwima (0300)",
+                                     "Kilińskiego - Piłsudskiego (0301)",
+                                     mode="transit",
+                                     departure_time=now)
+print( directions_result)
